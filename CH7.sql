@@ -1,6 +1,6 @@
 -- 20224301 인공지능공학부 김예진
--- 2024.06.03 DB
--- 강의 실습 과제 제출
+-- 2024.06.05 DB
+-- 강의 실습
 
 -- 데이터베이스 변경
 USE school;
@@ -292,3 +292,40 @@ FROM 학생;
 SELECT 이름, 별명, 학년, 주소
 FROM 학생
 WHERE 별명 IS NULL;
+
+-- 테이블에 특정 조건 검색
+SELECT 이름, 별명, 학년, 키, 몸무게
+FROM 학생
+WHERE 몸무게 IS NOT NULL
+	AND 몸무게 > 0;
+    
+-- 테이블 오름차순 정렬
+SELECT *
+FROM 학생
+ORDER BY 이름;
+
+-- 테이블 내림차순 정렬
+SELECT *
+FROM 학생
+ORDER BY 키 DESC;
+
+-- 테이블 조건 검색 오름차순 정렬
+SELECT *
+FROM 학생
+WHERE 학년 = 1
+ORDER BY 키;
+
+-- 테이블 정렬 순 검색
+SELECT 이름, 키, 몸무게
+FROM 학생
+ORDER BY 몸무게;
+
+-- 테이블 복합 정렬
+SELECT 이름, 별명, 학년, 키, 몸무게
+FROM 학생
+WHERE 학년 = 1
+ORDER BY 키 DESC, 몸무게;
+
+-- 수업SQL파일
+-- ALTER TABLE 컬럼 삭제
+alter table Participants drop column phone;
